@@ -1,9 +1,15 @@
 ---
-export const prerender = false
-import { getLaunchBy } from "../../lib/services/spacex";
+import { getLaunchBy, getLatestLaunches } from "../../lib/services/spacex";
 import { type Doc } from "../../types/api";
 import Layout from "../../layouts/Layout.astro";
 
+export const getStaticPaths = async () => {
+  const launches = await getLatestLaunches();
+
+  return launches.map((launch) => ({
+    params: { id: launch.id.toString() },
+  }));
+};
 const {id} = Astro.params
 let launch: Doc | null = null;
 if (id) {
