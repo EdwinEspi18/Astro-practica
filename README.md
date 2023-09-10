@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# Astro App: SpaceX Launches
 
 ```
 npm create astro@latest -- --template basics
@@ -12,7 +12,7 @@ npm create astro@latest -- --template basics
 
 ![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
-## 🚀 Project Structure
+## 🚀 Estructura del proyecto
 
 Inside of your Astro project, you'll see the following folders and files:
 
@@ -21,11 +21,23 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── public/
 │   └── favicon.svg
 ├── src/
+│   ├── lib/
+│   │   └── sevices/
+│   │       └── spacex.ts
+│   ├── types/
+│   │   └── api.ts
 │   ├── components/
-│   │   └── Card.astro
+│   │   └── CardLaunch.astro
+│   │   └── Header.astro
+│   │   └── HeaderButton.astro
+│   │   └── Launches.astro
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
+│       └── launch/
+│           └── [id].astro
+│       └── 404.astro
+│       └── about.astro
 │       └── index.astro
 └── package.json
 ```
