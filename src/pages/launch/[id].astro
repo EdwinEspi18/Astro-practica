@@ -1,0 +1,19 @@
+---
+export const prerender = false
+import { getLaunchBy } from "../../lib/services/spacex";
+import { type Doc } from "../../types/api";
+import Layout from "../../layouts/Layout.astro";
+
+const {id} = Astro.params
+let launch: Doc | null = null;
+if (id) {
+  launch = await getLaunchBy({id})
+}
+---
+<Layout title={`Lanzamiento ${id}`}>
+  <article class="flex flex-col w-">
+    <img class="w-52 h-auto" src={launch?.links.patch.small} alt={launch?.name} />
+    <h2 class="text-4xl text-white font-bold">Launch ${launch?.flight_number}</h2>
+    <p class="text-lg">{launch?.details}</p>
+    </article>
+</Layout>
